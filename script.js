@@ -35,7 +35,9 @@ class Character {
         this.name = name;
         this.health = 100;
         this.inventory = [];
-    }
+       
+    } 
+    static max_health =100;
     roll(mod = 0) {
         const result = Math.floor(Math.random() * 20) + 1 + mod;
         console.log(`${this.name} rolled a ${result}.`)
@@ -69,7 +71,10 @@ class Adventurer extends Character {
         this.weakness = weakness;
         // Every adventurer starts with a bed and 50 gold coins.
         this.inventory.push("bedroll", "50 gold coins");
+        
     }
+    ////Add a check to the constructor of the Adventurer class that ensures the given role matches one of these values.
+    static roles =[`Fighter`,`Healer`, `Wizard`,`Hunter`,`Ninja`]
     // Adventurers have the ability to scout ahead of them.
     scout() {
         console.log(`${this.name} is scouting ahead...`);
@@ -85,5 +90,6 @@ class Companion extends Character {
 }
 const robin = new Adventurer(`Robin`,`Ninja`,`sword fighting/Martial Arts`,`Lack of weapons`)
 const leo = new Companion(`Leo`,`cat`,[`small hat, sunglasses`])
+////inventory not showing in results
 console.log(robin,leo)
 
